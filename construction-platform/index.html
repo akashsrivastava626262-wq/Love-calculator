@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BuildCraft — Premium construction and home-building platform. Design, build, and transform your dream home with trusted experts.">
+  <title>BuildCraft | Premium Home Building & Construction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <span class="nav__logo-icon">◆</span>
+        BuildCraft
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
+        <li><a href="#testimonials" class="nav__link">Reviews</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="btn btn--ghost" data-modal="login">Log In</button>
+        <button class="btn btn--primary" data-modal="signup">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80" alt="Modern luxury home exterior" loading="eager">
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__content container">
+        <div class="hero__badge">Trusted by 12,000+ homeowners nationwide</div>
+        <h1 class="hero__title">
+          Build Your Dream Home<br>
+          <span class="hero__title-accent">With Confidence</span>
+        </h1>
+        <p class="hero__subtitle">
+          From blueprint to keys in hand — connect with certified builders, architects, and designers who deliver exceptional quality, transparent pricing, and on-time completion.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary btn--lg">Start Your Project</a>
+          <a href="#portfolio" class="btn btn--outline btn--lg">View Our Work</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="2500">0</span>
+            <span class="hero__stat-label">Projects Completed</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="98">0</span>
+            <span class="hero__stat-label">% Client Satisfaction</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="15">0</span>
+            <span class="hero__stat-label">Years Experience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-bar">
+      <div class="container trust-bar__inner">
+        <div class="trust-bar__item">
+          <span class="trust-bar__icon">✓</span>
+          <span>Licensed & Insured</span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__icon">★</span>
+          <span>BBB A+ Rated</span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__icon">◆</span>
+          <span>NAHB Certified</span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__icon">⬡</span>
+          <span>LEED Green Partner</span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__icon">◎</span>
+          <span>10-Year Warranty</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">What We Offer</span>
+          <h2 class="section__title">Comprehensive Building Services</h2>
+          <p class="section__subtitle">End-to-end solutions for every stage of your home journey — from concept to completion.</p>
+        </div>
+        <div class="services__grid">
+          <article class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Custom home construction" loading="lazy">
+            </div>
+            <div class="service-card__content">
+              <div class="service-card__icon">🏗️</div>
+              <h3>Home Construction</h3>
+              <p>Custom-built homes tailored to your vision, built with premium materials and expert craftsmanship.</p>
+              <a href="#contact" class="service-card__link">Learn more →</a>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Home renovation project" loading="lazy">
+            </div>
+            <div class="service-card__content">
+              <div class="service-card__icon">🔨</div>
+              <h3>Renovation & Remodeling</h3>
+              <p>Transform existing spaces with modern upgrades, structural improvements, and stylish finishes.</p>
+              <a href="#contact" class="service-card__link">Learn more →</a>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Interior design living room" loading="lazy">
+            </div>
+            <div class="service-card__content">
+              <div class="service-card__icon">🎨</div>
+              <h3>Interior Design</h3>
+              <p>Curated interiors that blend aesthetics with functionality, creating spaces you'll love living in.</p>
+              <a href="#contact" class="service-card__link">Learn more →</a>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Architectural blueprints" loading="lazy">
+            </div>
+            <div class="service-card__content">
+              <div class="service-card__icon">📐</div>
+              <h3>Architecture</h3>
+              <p>Innovative architectural designs that maximize space, light, and sustainability for modern living.</p>
+              <a href="#contact" class="service-card__link">Learn more →</a>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80" alt="Landscape design" loading="lazy">
+            </div>
+            <div class="service-card__content">
+              <div class="service-card__icon">🌿</div>
+              <h3>Landscape Design</h3>
+              <p>Outdoor living spaces, gardens, and hardscaping that complement your home's architecture.</p>
+              <a href="#contact" class="service-card__link">Learn more →</a>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-card__image">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80" alt="Project management" loading="lazy">
+            </div>
+            <div class="service-card__content">
+              <div class="service-card__icon">📋</div>
+              <h3>Project Management</h3>
+              <p>Full oversight from permits to final inspection — transparent timelines and budget tracking.</p>
+              <a href="#contact" class="service-card__link">Learn more →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Stats Section -->
+    <section class="about section" id="about">
+      <div class="container about__grid">
+        <div class="about__content">
+          <span class="section__tag">Why BuildCraft</span>
+          <h2 class="section__title">Building Trust, One Home at a Time</h2>
+          <p class="about__text">
+            For over 15 years, BuildCraft has been the platform of choice for homeowners who demand excellence. We vet every contractor, enforce strict quality standards, and provide full transparency throughout your build.
+          </p>
+          <ul class="about__features">
+            <li>
+              <span class="about__check">✓</span>
+              Fixed-price contracts with no hidden fees
+            </li>
+            <li>
+              <span class="about__check">✓</span>
+              Real-time project tracking dashboard
+            </li>
+            <li>
+              <span class="about__check">✓</span>
+              Dedicated project manager assigned to you
+            </li>
+            <li>
+              <span class="about__check">✓</span>
+              10-year structural warranty on all builds
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn--primary">Get a Free Consultation</a>
+        </div>
+        <div class="about__visual">
+          <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80" alt="Construction team at work" loading="lazy" class="about__image">
+          <div class="about__stats-card">
+            <div class="about__stats-item">
+              <span class="about__stats-number" data-count="2500">0</span>
+              <span class="about__stats-label">Homes Built</span>
+            </div>
+            <div class="about__stats-item">
+              <span class="about__stats-number" data-count="150">0</span>
+              <span class="about__stats-label">Expert Partners</span>
+            </div>
+            <div class="about__stats-item">
+              <span class="about__stats-number" data-count="45">0</span>
+              <span class="about__stats-label">States Served</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio section" id="portfolio">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">Our Work</span>
+          <h2 class="section__title">Featured Projects</h2>
+          <p class="section__subtitle">Explore a selection of our completed homes and renovations.</p>
+        </div>
+        <div class="portfolio__filters">
+          <button class="portfolio__filter active" data-filter="all">All Projects</button>
+          <button class="portfolio__filter" data-filter="residential">Residential</button>
+          <button class="portfolio__filter" data-filter="renovation">Renovation</button>
+          <button class="portfolio__filter" data-filter="commercial">Commercial</button>
+        </div>
+        <div class="portfolio__grid">
+          <article class="portfolio__item" data-category="residential">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Modern hillside residence" loading="lazy">
+            <div class="portfolio__overlay">
+              <h3>Hillside Modern Residence</h3>
+              <p>Austin, TX · 4,200 sq ft</p>
+            </div>
+          </article>
+          <article class="portfolio__item" data-category="renovation">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80" alt="Kitchen renovation" loading="lazy">
+            <div class="portfolio__overlay">
+              <h3>Chef's Kitchen Renovation</h3>
+              <p>Denver, CO · Full remodel</p>
+            </div>
+          </article>
+          <article class="portfolio__item" data-category="residential">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="Luxury villa" loading="lazy">
+            <div class="portfolio__overlay">
+              <h3>Coastal Luxury Villa</h3>
+              <p>Malibu, CA · 6,800 sq ft</p>
+            </div>
+          </article>
+          <article class="portfolio__item" data-category="commercial">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Commercial building" loading="lazy">
+            <div class="portfolio__overlay">
+              <h3>Downtown Office Tower</h3>
+              <p>Seattle, WA · 12 floors</p>
+            </div>
+          </article>
+          <article class="portfolio__item" data-category="renovation">
+            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600&q=80" alt="Bathroom renovation" loading="lazy">
+            <div class="portfolio__overlay">
+              <h3>Spa-Inspired Master Bath</h3>
+              <p>Portland, OR · Luxury upgrade</p>
+            </div>
+          </article>
+          <article class="portfolio__item" data-category="residential">
+            <img src="https://images.unsplash.com/photo-1605276374101-de4c0a9179f2?w=600&q=80" alt="Suburban family home" loading="lazy">
+            <div class="portfolio__overlay">
+              <h3>Family Craftsman Home</h3>
+              <p>Nashville, TN · 3,100 sq ft</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">Client Stories</span>
+          <h2 class="section__title">What Our Clients Say</h2>
+          <p class="section__subtitle">Real experiences from homeowners who trusted BuildCraft with their dream projects.</p>
+        </div>
+        <div class="testimonials__slider">
+          <div class="testimonials__track" id="testimonialTrack">
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <blockquote class="testimonial-card__quote">
+                "BuildCraft exceeded every expectation. From the initial design consultation to handing us the keys, the process was transparent, professional, and stress-free. Our custom home is absolutely stunning."
+              </blockquote>
+              <div class="testimonial-card__author">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah Mitchell" loading="lazy">
+                <div>
+                  <strong>Sarah Mitchell</strong>
+                  <span>Custom Home Build · Austin, TX</span>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <blockquote class="testimonial-card__quote">
+                "We renovated our entire kitchen and living space through BuildCraft. The project manager kept us updated daily, and they finished two weeks ahead of schedule. Couldn't be happier with the results."
+              </blockquote>
+              <div class="testimonial-card__author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James Rodriguez" loading="lazy">
+                <div>
+                  <strong>James Rodriguez</strong>
+                  <span>Full Renovation · Denver, CO</span>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <blockquote class="testimonial-card__quote">
+                "The transparency in pricing was what sold us. No surprise costs, no delays. BuildCraft connected us with an incredible architect and builder team. Our coastal villa is a masterpiece."
+              </blockquote>
+              <div class="testimonial-card__author">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Emily Chen" loading="lazy">
+                <div>
+                  <strong>Emily Chen</strong>
+                  <span>Luxury Villa · Malibu, CA</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="testimonials__nav">
+            <button class="testimonials__btn" id="prevTestimonial" aria-label="Previous testimonial">←</button>
+            <div class="testimonials__dots" id="testimonialDots"></div>
+            <button class="testimonials__btn" id="nextTestimonial" aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container cta__inner">
+        <h2>Ready to Build Your Dream Home?</h2>
+        <p>Join thousands of satisfied homeowners. Get a free consultation and personalized project estimate today.</p>
+        <div class="cta__actions">
+          <button class="btn btn--white btn--lg" data-modal="signup">Create Free Account</button>
+          <a href="#contact" class="btn btn--outline-white btn--lg">Schedule Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <span class="section__tag">Get In Touch</span>
+          <h2 class="section__title">Let's Start Your Project</h2>
+          <p class="contact__text">Have questions? Our team is here to help you every step of the way.</p>
+          <ul class="contact__details">
+            <li>
+              <span class="contact__icon">📞</span>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+18005551234">1-800-555-1234</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact__icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:hello@buildcraft.com">hello@buildcraft.com</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact__icon">📍</span>
+              <div>
+                <strong>Headquarters</strong>
+                <span>1200 Builder's Way, Suite 400<br>San Francisco, CA 94105</span>
+              </div>
+            </li>
+            <li>
+              <span class="contact__icon">🕐</span>
+              <div>
+                <strong>Support Hours</strong>
+                <span>Mon–Fri: 8am – 8pm EST<br>Sat: 9am – 5pm EST</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <form class="contact__form" id="contactForm">
+          <div class="form__group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Smith">
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+            <div class="form__group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option value="construction">Home Construction</option>
+              <option value="renovation">Renovation & Remodeling</option>
+              <option value="interior">Interior Design</option>
+              <option value="architecture">Architecture</option>
+              <option value="landscape">Landscape Design</option>
+              <option value="management">Project Management</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--full">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">
+          <span class="nav__logo-icon">◆</span>
+          BuildCraft
+        </a>
+        <p>Premium construction and home-building platform connecting homeowners with trusted experts.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Home Construction</a></li>
+          <li><a href="#services">Renovation</a></li>
+          <li><a href="#services">Interior Design</a></li>
+          <li><a href="#services">Architecture</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>&copy; 2026 BuildCraft. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">in</a>
+        <a href="#" aria-label="LinkedIn">li</a>
+        <a href="#" aria-label="Twitter">x</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Auth Modal -->
+  <div class="modal" id="authModal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="modalClose" aria-label="Close modal">&times;</button>
+      <div class="modal__tabs">
+        <button class="modal__tab active" data-tab="login">Log In</button>
+        <button class="modal__tab" data-tab="signup">Sign Up</button>
+      </div>
+      <form class="modal__form" id="loginForm">
+        <h3>Welcome Back</h3>
+        <p class="modal__subtitle">Sign in to manage your projects and connect with experts.</p>
+        <div class="form__group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required placeholder="you@example.com">
+        </div>
+        <div class="form__group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Log In</button>
+        <p class="modal__footer-text">Don't have an account? <button type="button" class="modal__switch" data-tab="signup">Sign up</button></p>
+      </form>
+      <form class="modal__form hidden" id="signupForm">
+        <h3>Create Your Account</h3>
+        <p class="modal__subtitle">Join BuildCraft and start building your dream home today.</p>
+        <div class="form__group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" required placeholder="John Smith">
+        </div>
+        <div class="form__group">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" required placeholder="you@example.com">
+        </div>
+        <div class="form__group">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" required placeholder="Create a strong password">
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Create Account</button>
+        <p class="modal__footer-text">Already have an account? <button type="button" class="modal__switch" data-tab="login">Log in</button></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
