@@ -13,7 +13,18 @@ A premium, professional landing page for a construction and home-building platfo
 - **Contact** — Full contact form with service selection
 - **Responsive Design** — Mobile-first layout with hamburger navigation
 
-## Getting Started
+## Live Preview (GitHub Pages)
+
+After merging to `main`, the site is published automatically:
+
+**https://akashsrivastava626262-wq.github.io/Love-calculator/**
+
+First-time setup (one-time, in GitHub):
+1. Open your repo → **Settings** → **Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. Merge the PR — the deploy workflow runs on push to `main`
+
+## Getting Started (Local)
 
 No build step required. Open the landing page directly in a browser:
 
