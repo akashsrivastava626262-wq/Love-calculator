@@ -2,6 +2,9 @@
  * BuildCraft Landing Page — Interactive Features
  */
 
+const OWNER_EMAIL = 'akashsrivastava626262@gmail.com';
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${OWNER_EMAIL}`;
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initMobileNav();
@@ -12,6 +15,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initSmoothScroll();
 });
+
+/* Send form data to owner email via FormSubmit */
+async function submitToEmail(data, subject) {
+  const response = await fetch(FORMSUBMIT_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      _subject: subject,
+      _template: 'table',
+      _captcha: 'false',
+      ...data,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to send message');
+  }
+
+  return response.json();
+}
+
+function formDataToObject(form) {
+  return Object.fromEntries(new FormData(form).entries());
+}
 
 /* Header scroll effect */
 function initHeader() {
@@ -92,16 +122,42 @@ function initAuthModal() {
     }
   });
 
-  loginForm.addEventListener('submit', (e) => {
+  loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    showToast('Welcome back! Redirecting to your dashboard...');
-    closeModal();
+    const btn = loginForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Signing in...';
+
+    try {
+      await submitToEmail(formDataToObject(loginForm), 'BuildCraft — New Login Attempt');
+      showToast('Details sent! We will contact you shortly.');
+      loginForm.reset();
+      closeModal();
+    } catch {
+      showToast('Could not send details. Please call +91 8416835773.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Log In';
+    }
   });
 
-  signupForm.addEventListener('submit', (e) => {
+  signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    showToast('Account created! Welcome to BuildCraft.');
-    closeModal();
+    const btn = signupForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Creating account...';
+
+    try {
+      await submitToEmail(formDataToObject(signupForm), 'BuildCraft — New Sign Up');
+      showToast('Account details sent! Welcome to BuildCraft.');
+      signupForm.reset();
+      closeModal();
+    } catch {
+      showToast('Could not send details. Please call +91 8416835773.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Create Account';
+    }
   });
 }
 
@@ -112,6 +168,10 @@ function initCounters() {
 
   const animateCounter = (el) => {
     const target = parseInt(el.dataset.count, 10);
+    if (target === 0) {
+      el.textContent = '0';
+      return;
+    }
     const start = performance.now();
 
     const update = (now) => {
@@ -202,10 +262,22 @@ function initTestimonialSlider() {
 function initContactForm() {
   const form = document.getElementById('contactForm');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    showToast('Thank you! Our team will contact you within 24 hours.');
-    form.reset();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      await submitToEmail(formDataToObject(form), 'BuildCraft — New Contact Form Inquiry');
+      showToast('Thank you! We will contact you within 24 hours.');
+      form.reset();
+    } catch {
+      showToast('Could not send message. Please call +91 8416835773.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
   });
 }
 
