@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { HeroImage } from "@/components/home/HeroImage";
 import { Button } from "@/components/ui/button";
 import { TrustBadges, WhyChooseAakshi } from "@/components/home/TrustBadges";
 import { CollectionGrid } from "@/components/home/CollectionGrid";
@@ -32,8 +33,8 @@ export default async function HomePage() {
     <>
       {/* Hero Section */}
       <section className="relative hero-gradient overflow-hidden">
-        <div className="container mx-auto px-4 py-16 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="container mx-auto px-4 py-12 sm:py-16 lg:py-24 xl:py-28">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-16 items-center">
             <div className="text-center lg:text-left">
               <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-4">
                 Premium Fashion Jewelry
@@ -59,17 +60,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="relative aspect-square max-w-lg mx-auto lg:max-w-none">
-              <div className="absolute inset-4 bg-primary/10 rounded-full blur-3xl" />
-              <Image
-                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80"
-                alt="AAKSHI Premium Jewelry Collection"
-                fill
-                className="object-cover rounded-3xl shadow-2xl relative z-10"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
+            <HeroImage />
           </div>
         </div>
       </section>
