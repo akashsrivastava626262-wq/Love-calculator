@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, Playfair_Display } from 'next/font/google';
+import { Poppins, Playfair_Display, Dancing_Script } from 'next/font/google';
 import { Header, Footer } from '@/components/layout/HeaderFooter';
 import { AIChatWidget } from '@/components/chat/AIChatWidget';
 import { AuthHydration } from '@/components/providers/AuthHydration';
@@ -15,6 +15,12 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-playfair',
+});
+
+const dancing = Dancing_Script({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-script',
 });
 
 export const metadata: Metadata = {
@@ -37,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${playfair.variable} ${dancing.variable}`}>
       <body className="min-h-screen flex flex-col">
         <AuthHydration>
           <Header />

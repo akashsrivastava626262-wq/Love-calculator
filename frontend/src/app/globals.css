@@ -6,8 +6,14 @@
   --color-accent: #D4AF37;
   --color-background: #FFF9FC;
   --color-foreground: #1F2937;
+  --color-mauve: #7B4A63;
+  --color-mauve-dark: #5C3849;
+  --color-blush: #FDF2F7;
+  --color-blush-dark: #F0D9E4;
+  --color-announce: #EBC4D4;
   --font-sans: var(--font-poppins);
   --font-display: var(--font-playfair);
+  --font-script: var(--font-script);
 }
 
 * {
@@ -19,7 +25,7 @@ html {
 }
 
 body {
-  background: var(--color-background);
+  background: var(--color-blush);
   color: var(--color-foreground);
   font-family: var(--font-poppins), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,8 +35,12 @@ body {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
+.font-script {
+  font-family: var(--font-script), cursive;
+}
+
 ::selection {
-  background: #FF5CA8;
+  background: #7B4A63;
   color: white;
 }
 
@@ -40,7 +50,7 @@ body {
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, #FFD6E8 25%, #FF5CA8 50%, #FFD6E8 75%);
+  background: linear-gradient(90deg, #F0D9E4 25%, #EBC4D4 50%, #F0D9E4 75%);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
