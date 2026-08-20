@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #7D4E5B;
-  --color-secondary: #F7E8E8;
+  --color-primary: #e11d48;
+  --color-secondary: #ffe4e6;
   --color-accent: #C77D8B;
-  --color-background: #FFF8F4;
-  --color-foreground: #3D2C2E;
+  --color-background: #fff8f6;
+  --color-foreground: #374151;
   --color-blush: #F7E8E8;
   --color-blush-deep: #EDD5D5;
   --color-mauve: #7D4E5B;
   --color-mauve-dark: #6A3F4C;
   --color-rose-gold: #C77D8B;
   --color-rose-dark: #A86573;
-  --color-cream: #FFF8F4;
+  --color-cream: #fff8f6;
   --color-nude: #EDE4DC;
-  --color-warm-white: #FFFCFA;
+  --color-warm-white: #ffffff;
   --color-gold: #C9A962;
   --color-gold-light: #E8D5A8;
   --font-sans: var(--font-poppins);
@@ -31,14 +31,14 @@ html {
 }
 
 body {
-  background: var(--color-cream);
+  background: #fff8f6;
   color: var(--color-foreground);
   font-family: var(--font-poppins), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .font-display {
-  font-family: var(--font-playfair), Georgia, serif;
+  font-family: var(--font-playfair), 'Cormorant Garamond', Georgia, serif;
 }
 
 .font-script {
@@ -46,44 +46,6 @@ body {
 }
 
 ::selection {
-  background: #7D4E5B;
+  background: #be123c;
   color: white;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-.animate-sparkle {
-  animation: sparkle 2.5s ease-in-out infinite;
-}
-
-/* Scalloped circular badge */
-.scalloped-badge {
-  background: #F7E8E8;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 6px rgba(247, 232, 232, 0.5),
-    0 8px 24px rgba(125, 78, 91, 0.12);
-}
-
-.scalloped-badge::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: radial-gradient(circle, transparent 58%, #F7E8E8 58%, #F7E8E8 62%, transparent 62%);
-  background-size: 14px 14px;
-  opacity: 0.6;
-  pointer-events: none;
 }

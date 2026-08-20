@@ -12,14 +12,15 @@ import { useAuthStore, useCartStore } from '@/lib/store';
 import { productAPI } from '@/lib/api';
 import type { Product } from '@/lib/types';
 
-function BrandLogo({ className = '' }: { className?: string }) {
+function BrandLogo({ className = '', large = false }: { className?: string; large?: boolean }) {
   return (
     <Link href="/" className={`flex flex-col items-center group ${className}`}>
-      <div className="relative font-display text-2xl md:text-[1.75rem] text-mauve font-semibold tracking-[0.02em] leading-none lowercase">
-        <span className="absolute -top-2.5 left-[0.05em] text-[8px] text-rose-gold/80">✦</span>
+      <span className={`font-display text-rose-700 leading-none lowercase font-semibold ${
+        large ? 'text-5xl lg:text-7xl' : 'text-3xl md:text-4xl'
+      }`}>
         aakshi
-      </div>
-      <span className="text-[7px] md:text-[8px] tracking-[0.35em] uppercase text-mauve/60 mt-1.5 font-medium">
+      </span>
+      <span className="tracking-[0.25em] md:tracking-[4px] text-[10px] md:text-xs uppercase text-gray-700 mt-1">
         Jewellery &amp; Accessories
       </span>
     </Link>
@@ -70,32 +71,34 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-warm-white/95 backdrop-blur-sm">
-      {/* Announcement bar */}
-      <div className="bg-blush text-mauve text-center py-2 text-[8px] md:text-[10px] font-semibold tracking-[0.1em] uppercase">
-        ✨ Free Shipping on All Orders &nbsp;|&nbsp; COD Available &nbsp;🥂&nbsp; Premium Quality Jewellery ✨
+    <header className="sticky top-0 z-50">
+      {/* Top bar */}
+      <div className="bg-rose-100 text-center text-xs md:text-sm py-3 tracking-wide text-gray-700">
+        ✨ FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp; | &nbsp;&nbsp;
+        COD AVAILABLE &nbsp;&nbsp; | &nbsp;&nbsp;
+        PREMIUM QUALITY JEWELLERY
       </div>
 
-      <div className="border-b border-blush-deep/40 bg-warm-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white shadow-sm border-b border-rose-100/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-4 lg:py-6">
           {/* Desktop layout */}
-          <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] items-center gap-4 h-[88px] relative">
-            <nav className="flex items-center gap-6 relative">
+          <div className="hidden lg:flex items-center justify-between relative">
+            <nav className="flex items-center gap-8 text-gray-700">
               {leftNav.map((link) => (
                 <div key={link.label} className="relative">
                   {link.hasDropdown ? (
                     <button
                       onClick={() => setShopOpen(!shopOpen)}
-                      className="flex items-center gap-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-mauve hover:text-mauve-dark transition-colors"
+                      className="flex items-center gap-1 hover:text-rose-700 transition-colors"
                     >
                       {link.label}
-                      <ChevronDown className="w-3 h-3" />
+                      <ChevronDown className="w-4 h-4" />
                     </button>
                   ) : (
                     <Link
                       href={link.href}
-                      className={`text-[10px] font-semibold tracking-[0.18em] uppercase transition-colors ${
-                        link.active ? 'text-mauve underline underline-offset-4 decoration-mauve/40' : 'text-mauve/75 hover:text-mauve'
+                      className={`hover:text-rose-700 transition-colors ${
+                        link.active ? 'text-rose-700 font-medium' : ''
                       }`}
                     >
                       {link.label}
@@ -105,31 +108,31 @@ export function Header() {
               ))}
             </nav>
 
-            <BrandLogo />
+            <BrandLogo large />
 
-            <div className="flex items-center justify-end gap-6">
-              <nav className="flex items-center gap-5">
+            <div className="flex items-center gap-8">
+              <nav className="flex items-center gap-8 text-gray-700">
                 {rightNav.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-[10px] font-semibold tracking-[0.18em] uppercase text-mauve/75 hover:text-mauve transition-colors"
+                    className="hover:text-rose-700 transition-colors"
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
-              <div className="flex items-center gap-1 border-l border-blush-deep/50 pl-4">
-                <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 text-mauve hover:text-mauve-dark transition-colors" aria-label="Search">
+              <div className="flex items-center gap-1 border-l border-rose-200 pl-4 ml-2">
+                <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 text-gray-700 hover:text-rose-700 transition-colors" aria-label="Search">
                   <Search className="w-4 h-4" />
                 </button>
-                <Link href="/account" className="p-2 text-mauve hover:text-mauve-dark transition-colors">
+                <Link href="/account" className="p-2 text-gray-700 hover:text-rose-700 transition-colors">
                   <User className="w-4 h-4" />
                 </Link>
-                <Link href="/cart" className="p-2 text-mauve hover:text-mauve-dark transition-colors relative">
+                <Link href="/cart" className="p-2 text-gray-700 hover:text-rose-700 transition-colors relative">
                   <ShoppingBag className="w-4 h-4" />
                   {totals.itemCount > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 bg-mauve text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                    <span className="absolute -top-0.5 -right-0.5 bg-rose-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                       {totals.itemCount}
                     </span>
                   )}
@@ -140,15 +143,15 @@ export function Header() {
 
           {/* Mobile layout */}
           <div className="flex lg:hidden items-center justify-between h-16">
-            <button onClick={() => setMobileOpen(true)} className="p-2 text-mauve" aria-label="Menu">
+            <button onClick={() => setMobileOpen(true)} className="p-2 text-gray-700" aria-label="Menu">
               <Menu className="w-5 h-5" />
             </button>
             <BrandLogo />
             <div className="flex items-center gap-1">
-              <Link href="/cart" className="p-2 text-mauve relative">
+              <Link href="/cart" className="p-2 text-gray-700 relative">
                 <ShoppingBag className="w-5 h-5" />
                 {totals.itemCount > 0 && (
-                  <span className="absolute top-0 right-0 bg-mauve text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                  <span className="absolute top-0 right-0 bg-rose-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                     {totals.itemCount}
                   </span>
                 )}
@@ -163,13 +166,13 @@ export function Header() {
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                className="hidden lg:block absolute left-4 top-full mt-0 bg-white rounded-xl shadow-xl border border-blush-deep/30 py-3 px-2 min-w-[180px] z-50"
+                className="hidden lg:block absolute left-4 top-full mt-0 bg-white rounded-xl shadow-xl border border-rose-100 py-3 px-2 min-w-[180px] z-50"
               >
                 {shopLinks.map((l) => (
                   <Link
                     key={l.href}
                     href={l.href}
-                    className="block px-4 py-2 text-sm text-rose-gold hover:bg-blush rounded-lg"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-rose-50 rounded-lg"
                     onClick={() => setShopOpen(false)}
                   >
                     {l.label}
@@ -191,7 +194,7 @@ export function Header() {
                   placeholder="Search jewellery..."
                   value={searchQuery}
                   onChange={(e) => handleSearch(e.target.value)}
-                  className="border-blush-deep/50 bg-white"
+                  className="border-rose-200 bg-white"
                 />
                 {searchResults.length > 0 && (
                   <div className="mt-2 bg-white rounded-xl border shadow-lg p-2">
@@ -199,7 +202,7 @@ export function Header() {
                       <Link
                         key={p._id}
                         href={`/product/${p.slug}`}
-                        className="block px-3 py-2 hover:bg-blush rounded-lg text-sm text-rose-gold"
+                        className="block px-3 py-2 hover:bg-rose-50 rounded-lg text-sm text-gray-700"
                         onClick={() => setSearchOpen(false)}
                       >
                         {p.name}
@@ -222,24 +225,24 @@ export function Header() {
             className="fixed inset-0 z-50 lg:hidden"
           >
             <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
-            <div className="absolute left-0 top-0 bottom-0 w-80 bg-blush shadow-xl p-6">
+            <div className="absolute left-0 top-0 bottom-0 w-80 bg-white shadow-xl p-6">
               <div className="flex justify-between items-center mb-8">
                 <BrandLogo />
-                <button onClick={() => setMobileOpen(false)} className="text-rose-gold"><X className="w-5 h-5" /></button>
+                <button onClick={() => setMobileOpen(false)} className="text-gray-700"><X className="w-5 h-5" /></button>
               </div>
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-4 text-gray-700">
                 {[...leftNav, ...rightNav].map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-sm font-semibold tracking-widest uppercase text-rose-gold"
+                    className="text-sm font-medium hover:text-rose-700"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
-                <hr className="border-blush-deep/40" />
-                <Link href="/account" className="text-sm font-medium text-rose-gold" onClick={() => setMobileOpen(false)}>My Account</Link>
+                <hr className="border-rose-100" />
+                <Link href="/account" className="text-sm font-medium text-gray-700 hover:text-rose-700" onClick={() => setMobileOpen(false)}>My Account</Link>
                 {user && (
                   <button onClick={() => { logout(); setMobileOpen(false); }} className="text-sm text-red-500">
                     Logout

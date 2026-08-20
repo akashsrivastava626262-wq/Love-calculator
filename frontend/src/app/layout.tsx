@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, Playfair_Display, Dancing_Script } from 'next/font/google';
+import { Poppins, Cormorant_Garamond, Dancing_Script } from 'next/font/google';
 import { Header, Footer } from '@/components/layout/HeaderFooter';
 import { AIChatWidget } from '@/components/chat/AIChatWidget';
 import { AuthHydration } from '@/components/providers/AuthHydration';
@@ -11,7 +11,7 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-playfair',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${playfair.variable} ${dancing.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${cormorant.variable} ${dancing.variable}`}>
       <body className="min-h-screen flex flex-col">
         <AuthHydration>
           <Header />
