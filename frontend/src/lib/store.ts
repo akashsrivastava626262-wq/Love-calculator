@@ -84,7 +84,7 @@ export const useAuthStore = create<AuthState>()(
       },
       isAuthenticated: () => !!get().token,
     }),
-    { name: 'aakshi-auth' }
+    { name: 'aakshi-auth', skipHydration: true }
   )
 );
 

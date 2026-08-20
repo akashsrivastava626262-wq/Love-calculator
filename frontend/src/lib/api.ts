@@ -2,7 +2,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { getSessionId } from './utils';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || (basePath ? `${basePath}/api` : '/api');
 
 const api = axios.create({
   baseURL: API_URL,

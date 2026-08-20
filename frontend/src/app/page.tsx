@@ -1,4 +1,4 @@
-import { HeroBanner } from '@/components/home/HeroBanner';
+import { LuxuryHero, PromoMarquee, TrustStrip } from '@/components/home/LuxuryHero';
 import { TrendingCategories } from '@/components/home/TrendingCategories';
 import { ProductGrid } from '@/components/home/ProductGrid';
 import { FlashSaleCountdown } from '@/components/home/FlashSaleCountdown';
@@ -17,14 +17,18 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <>
-      <HeroBanner />
+      <LuxuryHero />
+      <PromoMarquee />
+      <TrustStrip />
       <TrendingCategories />
 
       <ProductGrid
         title="Best Selling Products"
-        subtitle="Our most loved pieces"
+        subtitle="Our most loved pieces — trending across India"
         filterType="bestSeller"
       />
+
+      <FlashSaleCountdown />
 
       <ProductGrid
         title="New Arrivals"
@@ -33,16 +37,24 @@ export default function HomePage() {
         limit={4}
       />
 
-      <FlashSaleCountdown />
-
-      <section className="py-16 container mx-auto px-4">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-10">Shop Collections</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <section className="py-20 container mx-auto px-4">
+        <div className="text-center mb-12">
+          <p className="text-primary font-medium tracking-widest text-sm uppercase mb-2">Curated For You</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold">Shop Collections</h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {COLLECTIONS.map((col) => (
-            <Link key={col.slug} href={`/shop?collection=${col.slug}`} className="group relative aspect-[3/2] rounded-2xl overflow-hidden">
-              <Image src={col.image} alt={col.name} fill sizes="33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <h3 className="absolute bottom-4 left-4 text-white font-semibold">{col.name}</h3>
+            <Link
+              key={col.slug}
+              href={`/shop?collection=${col.slug}`}
+              className="group relative aspect-[3/2] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500"
+            >
+              <Image src={col.image} alt={col.name} fill sizes="33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <h3 className="text-white font-semibold text-lg">{col.name}</h3>
+                <p className="text-white/70 text-sm mt-1 group-hover:text-primary transition-colors">Explore →</p>
+              </div>
             </Link>
           ))}
         </div>

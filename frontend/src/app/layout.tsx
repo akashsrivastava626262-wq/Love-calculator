@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Poppins, Playfair_Display } from 'next/font/google';
 import { Header, Footer } from '@/components/layout/HeaderFooter';
 import { AIChatWidget } from '@/components/chat/AIChatWidget';
+import { AuthHydration } from '@/components/providers/AuthHydration';
 import './globals.css';
 
 const poppins = Poppins({
@@ -38,10 +39,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${poppins.variable} ${playfair.variable}`}>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <AIChatWidget />
+        <AuthHydration>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <AIChatWidget />
+        </AuthHydration>
       </body>
     </html>
   );
