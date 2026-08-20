@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #C77D8B;
+  --color-primary: #7D4E5B;
   --color-secondary: #F7E8E8;
-  --color-accent: #D4AF37;
+  --color-accent: #C77D8B;
   --color-background: #FFF8F4;
   --color-foreground: #3D2C2E;
   --color-blush: #F7E8E8;
   --color-blush-deep: #EDD5D5;
+  --color-mauve: #7D4E5B;
+  --color-mauve-dark: #6A3F4C;
   --color-rose-gold: #C77D8B;
   --color-rose-dark: #A86573;
   --color-cream: #FFF8F4;
@@ -43,39 +45,19 @@ body {
   font-family: var(--font-script), cursive;
 }
 
-.glass {
-  background: rgba(255, 252, 250, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-}
-
-.glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(247, 232, 232, 0.55) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 32px rgba(199, 125, 139, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
 ::selection {
-  background: #C77D8B;
+  background: #7D4E5B;
   color: white;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes sparkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.15); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
 }
 
 .animate-float {
@@ -86,8 +68,22 @@ body {
   animation: sparkle 2.5s ease-in-out infinite;
 }
 
-.animate-shimmer {
-  background: linear-gradient(90deg, #F7E8E8 25%, #C77D8B 50%, #F7E8E8 75%);
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
+/* Scalloped circular badge */
+.scalloped-badge {
+  background: #F7E8E8;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 6px rgba(247, 232, 232, 0.5),
+    0 8px 24px rgba(125, 78, 91, 0.12);
+}
+
+.scalloped-badge::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 58%, #F7E8E8 58%, #F7E8E8 62%, transparent 62%);
+  background-size: 14px 14px;
+  opacity: 0.6;
+  pointer-events: none;
 }

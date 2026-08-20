@@ -15,14 +15,11 @@ import type { Product } from '@/lib/types';
 function BrandLogo({ className = '' }: { className?: string }) {
   return (
     <Link href="/" className={`flex flex-col items-center group ${className}`}>
-      <div className="flex items-center gap-2">
-        <span className="text-gold text-[10px] group-hover:animate-sparkle">✦</span>
-        <span className="font-display text-2xl md:text-3xl text-rose-gold tracking-[0.12em] leading-none font-semibold">
-          AAKSHI
-        </span>
-        <span className="text-gold text-[10px] group-hover:animate-sparkle">✦</span>
+      <div className="relative font-display text-2xl md:text-[1.75rem] text-mauve font-semibold tracking-[0.02em] leading-none lowercase">
+        <span className="absolute -top-2.5 left-[0.05em] text-[8px] text-rose-gold/80">✦</span>
+        aakshi
       </div>
-      <span className="text-[8px] md:text-[9px] tracking-[0.38em] uppercase text-rose-gold/70 mt-1.5 font-medium">
+      <span className="text-[7px] md:text-[8px] tracking-[0.35em] uppercase text-mauve/60 mt-1.5 font-medium">
         Jewellery &amp; Accessories
       </span>
     </Link>
@@ -73,13 +70,13 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-cream/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-warm-white/95 backdrop-blur-sm">
       {/* Announcement bar */}
-      <div className="bg-gradient-to-r from-blush via-blush-deep to-blush text-rose-gold text-center py-2.5 text-[9px] md:text-[11px] font-semibold tracking-[0.12em] uppercase">
-        ✨ Free Shipping on All Orders &nbsp;·&nbsp; COD Available &nbsp;·&nbsp; Premium Quality Jewellery ✨
+      <div className="bg-blush text-mauve text-center py-2 text-[8px] md:text-[10px] font-semibold tracking-[0.1em] uppercase">
+        ✨ Free Shipping on All Orders &nbsp;|&nbsp; COD Available &nbsp;🥂&nbsp; Premium Quality Jewellery ✨
       </div>
 
-      <div className="border-b border-blush-deep/50 bg-warm-white/70 backdrop-blur-md">
+      <div className="border-b border-blush-deep/40 bg-warm-white">
         <div className="container mx-auto px-4">
           {/* Desktop layout */}
           <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] items-center gap-4 h-[88px] relative">
@@ -89,7 +86,7 @@ export function Header() {
                   {link.hasDropdown ? (
                     <button
                       onClick={() => setShopOpen(!shopOpen)}
-                      className="flex items-center gap-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-rose-gold hover:text-rose-dark transition-colors"
+                      className="flex items-center gap-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-mauve hover:text-mauve-dark transition-colors"
                     >
                       {link.label}
                       <ChevronDown className="w-3 h-3" />
@@ -98,7 +95,7 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={`text-[10px] font-semibold tracking-[0.18em] uppercase transition-colors ${
-                        link.active ? 'text-rose-gold underline underline-offset-4 decoration-rose-gold/50' : 'text-rose-gold/80 hover:text-rose-gold'
+                        link.active ? 'text-mauve underline underline-offset-4 decoration-mauve/40' : 'text-mauve/75 hover:text-mauve'
                       }`}
                     >
                       {link.label}
@@ -116,23 +113,23 @@ export function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-[10px] font-semibold tracking-[0.18em] uppercase text-rose-gold/80 hover:text-rose-gold transition-colors"
+                    className="text-[10px] font-semibold tracking-[0.18em] uppercase text-mauve/75 hover:text-mauve transition-colors"
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
-              <div className="flex items-center gap-1 border-l border-blush-deep/60 pl-4">
-                <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 text-rose-gold hover:text-rose-dark transition-colors" aria-label="Search">
+              <div className="flex items-center gap-1 border-l border-blush-deep/50 pl-4">
+                <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 text-mauve hover:text-mauve-dark transition-colors" aria-label="Search">
                   <Search className="w-4 h-4" />
                 </button>
-                <Link href="/account" className="p-2 text-rose-gold hover:text-rose-dark transition-colors">
+                <Link href="/account" className="p-2 text-mauve hover:text-mauve-dark transition-colors">
                   <User className="w-4 h-4" />
                 </Link>
-                <Link href="/cart" className="p-2 text-rose-gold hover:text-rose-dark transition-colors relative">
+                <Link href="/cart" className="p-2 text-mauve hover:text-mauve-dark transition-colors relative">
                   <ShoppingBag className="w-4 h-4" />
                   {totals.itemCount > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 bg-rose-gold text-warm-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                    <span className="absolute -top-0.5 -right-0.5 bg-mauve text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                       {totals.itemCount}
                     </span>
                   )}
@@ -143,15 +140,15 @@ export function Header() {
 
           {/* Mobile layout */}
           <div className="flex lg:hidden items-center justify-between h-16">
-            <button onClick={() => setMobileOpen(true)} className="p-2 text-rose-gold" aria-label="Menu">
+            <button onClick={() => setMobileOpen(true)} className="p-2 text-mauve" aria-label="Menu">
               <Menu className="w-5 h-5" />
             </button>
             <BrandLogo />
             <div className="flex items-center gap-1">
-              <Link href="/cart" className="p-2 text-rose-gold relative">
+              <Link href="/cart" className="p-2 text-mauve relative">
                 <ShoppingBag className="w-5 h-5" />
                 {totals.itemCount > 0 && (
-                  <span className="absolute top-0 right-0 bg-rose-gold text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                  <span className="absolute top-0 right-0 bg-mauve text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                     {totals.itemCount}
                   </span>
                 )}
@@ -263,7 +260,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <p className="font-display text-3xl tracking-[0.15em] mb-1">AAKSHI</p>
+            <p className="font-display text-3xl tracking-[0.05em] mb-1 lowercase">aakshi</p>
             <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 mb-3">Jewellery &amp; Accessories</p>
             <p className="font-script text-lg text-gold-light mb-4">Girlish. Timeless. Yours.</p>
             <p className="text-white/75 text-sm mb-5 leading-relaxed">
@@ -326,7 +323,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/15 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/55">
-          <p>&copy; {new Date().getFullYear()} AAKSHI. All rights reserved. · Not just jewellery, it&apos;s your Aakshi.</p>
+          <p>&copy; {new Date().getFullYear()} aakshi. All rights reserved. · Not just jewellery, it&apos;s your aakshi.</p>
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="hover:text-gold-light transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-gold-light transition-colors">Terms</Link>
