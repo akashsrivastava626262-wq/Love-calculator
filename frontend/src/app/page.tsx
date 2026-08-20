@@ -40,21 +40,21 @@ export default function HomePage() {
 
       <section className="py-20 container mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-mauve font-medium tracking-widest text-sm uppercase mb-2">Curated For You</p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-mauve">Shop Collections</h2>
+          <p className="text-rose-gold font-medium tracking-widest text-sm uppercase mb-2">Curated For You</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-rose-gold">Shop Collections</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {COLLECTIONS.map((col) => (
             <Link
               key={col.slug}
               href={`/shop?collection=${col.slug}`}
-              className="group relative aspect-[3/2] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-mauve/20 transition-all duration-500"
+              className="group relative aspect-[3/2] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-rose-gold/20 transition-all duration-500"
             >
               <Image src={col.image} alt={col.name} fill sizes="33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-mauve-dark/70 via-mauve/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-rose-dark/70 via-rose-gold/20 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5">
                 <h3 className="text-white font-semibold text-lg">{col.name}</h3>
-                <p className="text-white/70 text-sm mt-1 group-hover:text-announce transition-colors">Explore →</p>
+                <p className="text-white/70 text-sm mt-1 group-hover:text-blush transition-colors">Explore →</p>
               </div>
             </Link>
           ))}
