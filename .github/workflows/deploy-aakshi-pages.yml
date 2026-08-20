@@ -32,7 +32,8 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        run: npm run build:web --workspace=apps/web
+        working-directory: apps/web
+        run: npm run build
         env:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_SITE_URL: https://akashsrivastava626262-wq.github.io/Love-calculator
