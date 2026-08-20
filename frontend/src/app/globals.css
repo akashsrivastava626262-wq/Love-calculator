@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #FF5CA8;
+  --color-secondary: #FFD6E8;
+  --color-accent: #D4AF37;
+  --color-background: #FFF9FC;
+  --color-foreground: #1F2937;
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-playfair);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+::selection {
+  background: #FF5CA8;
+  color: white;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #FFD6E8 25%, #FF5CA8 50%, #FFD6E8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}

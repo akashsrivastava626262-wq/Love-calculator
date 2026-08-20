@@ -1,11 +1,22 @@
-# Love-calculator
+# AAKSHI E-Commerce Platform
+
+See [aakshi/README.md](./aakshi/README.md) for full documentation.
 
 ## Projects
 
+### AAKSHI — Premium Fashion Jewelry E-Commerce
+Full-stack Next.js + Express eCommerce platform.
+
+```bash
+# Backend
+cd backend && npm install && npm run dev
+
+# Frontend
+cd frontend && npm install && npm run dev
+```
+
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
+
 ### [BuildCraft — Construction Platform](./construction-platform/)
-
-Premium landing page for a construction and home-building platform.
-
-- **Live site:** https://akashsrivastava626262-wq.github.io/Love-calculator/ (after merge + Pages enabled)
-- **Local preview:** `cd construction-platform && python3 -m http.server 8080` → http://localhost:8080
-- **Docs:** [construction-platform README](./construction-platform/README.md)
+Premium landing page for a construction platform.
