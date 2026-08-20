@@ -2,6 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DEMO_CATEGORIES } from '@/lib/types';
 
+export function generateStaticParams() {
+  return DEMO_CATEGORIES.map((c) => ({ slug: c.slug }));
+}
+
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const category = DEMO_CATEGORIES.find((c) => c.slug === slug);

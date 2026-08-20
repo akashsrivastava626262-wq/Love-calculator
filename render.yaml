@@ -1,0 +1,31 @@
+# AAKSHI Staging — Render Blueprint
+# Connect this repo on https://dashboard.render.com/blueprints
+
+services:
+  - type: web
+    name: aakshi-api-staging
+    runtime: node
+    plan: free
+    branch: cursor/aakshi-ecommerce-2b88
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && STAGING_MODE=memory AUTO_SEED=true npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: staging
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://akashsrivastava626262-wq.github.io/Love-calculator
+      - key: STAGING_MODE
+        value: memory
+      - key: AUTO_SEED
+        value: true
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false

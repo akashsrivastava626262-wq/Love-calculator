@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { DEMO_PRODUCTS, DEMO_CATEGORIES } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://aakshi.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
