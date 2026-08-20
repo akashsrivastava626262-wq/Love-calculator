@@ -14,13 +14,16 @@ import { cn } from '@/lib/utils';
 interface ProductCardProps {
   product: Product;
   index?: number;
+  variant?: 'default' | 'giva';
 }
 
-export function ProductCard({ product, index = 0 }: ProductCardProps) {
+export function ProductCard({ product, index = 0, variant = 'default' }: ProductCardProps) {
   const { toggle, isInWishlist } = useWishlistStore();
   const { addItem } = useCartStore();
   const image = product.images?.[0]?.url || '/placeholder.jpg';
   const inWishlist = isInWishlist(product._id);
+
+  const isGiva = variant === 'giva';
 
   return (
     <motion.div
@@ -28,10 +31,14 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6 }}
-      className="group"
+      whileHover={{ y: isGiva ? -4 : -6 }}
+      className="group h-full"
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white shadow-sm border border-secondary/30 hover:shadow-xl hover:shadow-primary/10 transition-shadow duration-500 card-lift">
+      <div className={`relative overflow-hidden bg-white h-full flex flex-col ${
+        isGiva
+          ? 'rounded-xl border border-gray-100 hover:shadow-lg transition-shadow duration-400'
+          : 'rounded-2xl shadow-sm border border-secondary/30 hover:shadow-xl hover:shadow-primary/10 transition-shadow duration-500 card-lift'
+      }`}>
         <div className="relative aspect-square overflow-hidden">
           <Link href={`/product/${product.slug}`}>
             <Image
@@ -43,7 +50,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             />
           </Link>
 
-          <div className="absolute top-3 left-3 flex flex-col gap-1">
+          <div className={`absolute top-3 left-3 flex flex-col gap-1 ${isGiva ? 'top-2 left-2' : ''}`}>
             {product.discount > 0 && (
               <Badge variant="sale">{product.discount}% OFF</Badge>
             )}
@@ -74,10 +81,14 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           </div>
         </div>
 
-        <div className="p-4">
-          <p className="text-xs text-primary font-medium mb-1">{product.category?.name}</p>
+        <div className={`p-4 flex-1 flex flex-col ${isGiva ? 'p-3' : ''}`}>
+          {!isGiva && (
+            <p className="text-xs text-primary font-medium mb-1">{product.category?.name}</p>
+          )}
           <Link href={`/product/${product.slug}`}>
-            <h3 className="font-medium text-sm text-foreground line-clamp-2 hover:text-primary transition-colors">
+            <h3 className={`font-medium line-clamp-2 hover:text-primary transition-colors ${
+              isGiva ? 'text-sm text-gray-800' : 'text-sm text-foreground'
+            }`}>
               {product.name}
             </h3>
           </Link>
@@ -95,8 +106,10 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             <span className="text-xs text-gray-500 ml-1">({product.reviewCount})</span>
           </div>
 
-          <div className="flex items-center gap-2 mt-2">
-            <span className="text-lg font-bold text-foreground">{formatPrice(product.price)}</span>
+          <div className="flex items-center gap-2 mt-auto pt-2">
+            <span className={`font-bold ${isGiva ? 'text-base text-gray-900' : 'text-lg text-foreground'}`}>
+              {formatPrice(product.price)}
+            </span>
             {product.originalPrice > product.price && (
               <span className="text-sm text-gray-400 line-through">{formatPrice(product.originalPrice)}</span>
             )}

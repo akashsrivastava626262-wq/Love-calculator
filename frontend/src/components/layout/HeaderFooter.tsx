@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Search, ShoppingBag, User, Menu, X, Phone, ChevronDown,
+  Search, ShoppingBag, User, Menu, X, Phone, ChevronDown, Heart,
   Share2, Globe, Video,
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -14,14 +14,11 @@ import type { Product } from '@/lib/types';
 
 function BrandLogo({ className = '', large = false }: { className?: string; large?: boolean }) {
   return (
-    <Link href="/" className={`flex flex-col items-center group ${className}`}>
-      <span className={`font-display text-rose-700 leading-none lowercase font-semibold ${
-        large ? 'text-5xl lg:text-7xl' : 'text-3xl md:text-4xl'
+    <Link href="/" className={`flex items-center gap-1 group ${className}`}>
+      <span className={`font-display font-bold tracking-tight text-giva-pink ${
+        large ? 'text-3xl lg:text-4xl' : 'text-2xl md:text-3xl'
       }`}>
         aakshi
-      </span>
-      <span className="tracking-[0.25em] md:tracking-[4px] text-[10px] md:text-xs uppercase text-gray-700 mt-1">
-        Jewellery &amp; Accessories
       </span>
     </Link>
   );
@@ -71,74 +68,83 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50">
-      {/* Top bar */}
-      <div className="bg-rose-100 text-center text-xs md:text-sm py-3 tracking-wide text-gray-700">
-        ✨ FREE SHIPPING ON ALL ORDERS &nbsp;&nbsp; | &nbsp;&nbsp;
-        COD AVAILABLE &nbsp;&nbsp; | &nbsp;&nbsp;
-        PREMIUM QUALITY JEWELLERY
+    <header className="sticky top-0 z-50 bg-white">
+      {/* Giva-style promo strip */}
+      <div className="bg-giva-pink-light text-center text-[11px] md:text-xs py-2.5 text-gray-600 tracking-wide border-b border-pink-100">
+        <span className="text-giva-pink font-semibold">Free Shipping</span> on all orders
+        <span className="mx-2 text-gray-300">|</span>
+        Easy Returns
+        <span className="mx-2 text-gray-300">|</span>
+        COD Available
+        <span className="mx-2 text-gray-300 hidden sm:inline">|</span>
+        <span className="hidden sm:inline">Anti-Tarnish Korean Jewellery</span>
       </div>
 
-      <div className="bg-white shadow-sm border-b border-rose-100/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-4 lg:py-6">
-          {/* Desktop layout */}
-          <div className="hidden lg:flex items-center justify-between relative">
-            <nav className="flex items-center gap-8 text-gray-700">
-              {leftNav.map((link) => (
-                <div key={link.label} className="relative">
-                  {link.hasDropdown ? (
-                    <button
-                      onClick={() => setShopOpen(!shopOpen)}
-                      className="flex items-center gap-1 hover:text-rose-700 transition-colors"
-                    >
-                      {link.label}
-                      <ChevronDown className="w-4 h-4" />
-                    </button>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className={`hover:text-rose-700 transition-colors ${
-                        link.active ? 'text-rose-700 font-medium' : ''
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </div>
+      <div className="border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Desktop */}
+          <div className="hidden lg:flex items-center gap-8 h-[72px]">
+            <BrandLogo />
+
+            {/* Search bar — Giva style */}
+            <div className="flex-1 max-w-xl mx-auto">
+              <button
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="w-full flex items-center gap-3 px-5 py-2.5 rounded-full border border-gray-200 bg-gray-50 text-gray-400 text-sm hover:border-giva-pink/30 hover:bg-white transition-all text-left"
+              >
+                <Search className="w-4 h-4 shrink-0" />
+                Search earrings, necklaces, rings...
+              </button>
+            </div>
+
+            <nav className="flex items-center gap-6 text-sm text-gray-600">
+              {rightNav.slice(0, 2).map((link) => (
+                <Link key={link.href} href={link.href} className="hover:text-giva-pink transition-colors hidden xl:block">
+                  {link.label}
+                </Link>
               ))}
             </nav>
 
-            <BrandLogo large />
-
-            <div className="flex items-center gap-8">
-              <nav className="flex items-center gap-8 text-gray-700">
-                {rightNav.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="hover:text-rose-700 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-              <div className="flex items-center gap-1 border-l border-rose-200 pl-4 ml-2">
-                <button onClick={() => setSearchOpen(!searchOpen)} className="p-2 text-gray-700 hover:text-rose-700 transition-colors" aria-label="Search">
-                  <Search className="w-4 h-4" />
-                </button>
-                <Link href="/account" className="p-2 text-gray-700 hover:text-rose-700 transition-colors">
-                  <User className="w-4 h-4" />
-                </Link>
-                <Link href="/cart" className="p-2 text-gray-700 hover:text-rose-700 transition-colors relative">
-                  <ShoppingBag className="w-4 h-4" />
-                  {totals.itemCount > 0 && (
-                    <span className="absolute -top-0.5 -right-0.5 bg-rose-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
-                      {totals.itemCount}
-                    </span>
-                  )}
-                </Link>
-              </div>
+            <div className="flex items-center gap-1">
+              <button onClick={() => setSearchOpen(!searchOpen)} className="p-2.5 text-gray-600 hover:text-giva-pink transition-colors lg:hidden" aria-label="Search">
+                <Search className="w-5 h-5" />
+              </button>
+              <Link href="/wishlist" className="p-2.5 text-gray-600 hover:text-giva-pink transition-colors hidden sm:block">
+                <Heart className="w-5 h-5" />
+              </Link>
+              <Link href="/account" className="p-2.5 text-gray-600 hover:text-giva-pink transition-colors">
+                <User className="w-5 h-5" />
+              </Link>
+              <Link href="/cart" className="p-2.5 text-gray-600 hover:text-giva-pink transition-colors relative">
+                <ShoppingBag className="w-5 h-5" />
+                {totals.itemCount > 0 && (
+                  <span className="absolute top-1 right-1 bg-giva-pink text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-medium">
+                    {totals.itemCount}
+                  </span>
+                )}
+              </Link>
             </div>
+          </div>
+
+          {/* Category nav — Giva horizontal links */}
+          <div className="hidden lg:flex items-center gap-6 h-11 border-t border-gray-50 text-xs font-medium text-gray-600 overflow-x-auto">
+            {leftNav.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`shrink-0 py-3 border-b-2 transition-colors hover:text-giva-pink ${
+                  link.active ? 'border-giva-pink text-giva-pink' : 'border-transparent'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <span className="text-gray-200">|</span>
+            {shopLinks.slice(0, 6).map((l) => (
+              <Link key={l.href} href={l.href} className="shrink-0 py-3 hover:text-giva-pink transition-colors">
+                {l.label}
+              </Link>
+            ))}
           </div>
 
           {/* Mobile layout */}
@@ -151,7 +157,7 @@ export function Header() {
               <Link href="/cart" className="p-2 text-gray-700 relative">
                 <ShoppingBag className="w-5 h-5" />
                 {totals.itemCount > 0 && (
-                  <span className="absolute top-0 right-0 bg-rose-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                  <span className="absolute top-0 right-0 bg-giva-pink text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                     {totals.itemCount}
                   </span>
                 )}
@@ -259,13 +265,13 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-rose-gold to-rose-dark text-white mt-16">
+    <footer className="bg-gray-900 text-white mt-16">
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <p className="font-display text-3xl tracking-[0.05em] mb-1 lowercase">aakshi</p>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 mb-3">Jewellery &amp; Accessories</p>
-            <p className="font-script text-lg text-gold-light mb-4">Girlish. Timeless. Yours.</p>
+            <p className="font-display text-2xl font-bold text-giva-pink mb-1">aakshi</p>
+            <p className="text-xs text-white/50 mb-3 tracking-wider uppercase">Jewellery &amp; Accessories</p>
+            <p className="font-script text-base text-white/80 mb-4">Shine More, Worry Less.</p>
             <p className="text-white/75 text-sm mb-5 leading-relaxed">
               Premium artificial, Korean &amp; anti-tarnish jewellery designed to shine through every moment.
             </p>

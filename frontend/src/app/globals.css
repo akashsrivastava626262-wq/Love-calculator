@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #e11d48;
-  --color-secondary: #ffe4e6;
-  --color-accent: #C77D8B;
-  --color-background: #fff8f6;
-  --color-foreground: #374151;
+  --color-primary: #E8537A;
+  --color-secondary: #FDF2F4;
+  --color-accent: #C9A962;
+  --color-background: #FFFBFC;
+  --color-foreground: #1F2937;
+  --color-giva-pink: #E8537A;
+  --color-giva-pink-dark: #D1436A;
+  --color-giva-pink-light: #FDF2F4;
+  --color-giva-sage: #8FA68E;
+  --color-giva-cream: #FFFBFC;
   --color-blush: #F7E8E8;
   --color-blush-deep: #EDD5D5;
   --color-mauve: #7D4E5B;
@@ -31,7 +36,7 @@ html {
 }
 
 body {
-  background: #fff8f6;
+  background: #FFFBFC;
   color: var(--color-foreground);
   font-family: var(--font-poppins), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,9 +51,17 @@ body {
 }
 
 ::selection {
-  background: #be123c;
+  background: #E8537A;
   color: white;
 }
+
+.bg-giva-gradient {
+  background: linear-gradient(135deg, #E8537A 0%, #F06292 50%, #E8537A 100%);
+}
+
+.text-giva-pink { color: #E8537A; }
+.bg-giva-pink-light { background-color: #FDF2F4; }
+.border-giva-pink { border-color: #E8537A; }
 
 /* ─── Animated landing background ─── */
 .bg-mesh-gradient {
