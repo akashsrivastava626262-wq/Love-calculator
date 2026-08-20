@@ -3,9 +3,11 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Reveal } from '@/components/motion/Reveal';
 import { formatPrice } from '@/lib/utils';
 import { useCartStore } from '@/lib/store';
 
@@ -25,18 +27,26 @@ export default function CartPage() {
 
   if (activeItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-20 text-center">
-        <ShoppingBag className="w-16 h-16 mx-auto text-gray-300 mb-4" />
-        <h1 className="font-display text-2xl font-bold mb-2">Your cart is empty</h1>
-        <p className="text-gray-500 mb-6">Discover our beautiful jewelry collections</p>
-        <Button asChild size="lg"><Link href="/shop">Shop Now</Link></Button>
-      </div>
+      <Reveal className="container mx-auto px-4 py-20 text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ShoppingBag className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+          <h1 className="font-display text-2xl font-bold mb-2">Your cart is empty</h1>
+          <p className="text-gray-500 mb-6">Discover our beautiful jewelry collections</p>
+          <Button asChild size="lg"><Link href="/shop">Shop Now</Link></Button>
+        </motion.div>
+      </Reveal>
     );
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="font-display text-3xl font-bold mb-8">Shopping Cart</h1>
+      <Reveal>
+        <h1 className="font-display text-3xl font-bold mb-8">Shopping Cart</h1>
+      </Reveal>
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-4">

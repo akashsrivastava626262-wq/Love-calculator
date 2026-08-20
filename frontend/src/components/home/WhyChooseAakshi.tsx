@@ -27,8 +27,9 @@ export function WhyChooseAakshi() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            className="text-center p-6 rounded-2xl bg-white border border-secondary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
+            transition={{ delay: i * 0.08, type: 'spring', stiffness: 300, damping: 22 }}
+            className="text-center p-6 rounded-2xl bg-white border border-secondary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 card-lift"
+            whileHover={{ y: -5, scale: 1.02 }}
           >
             <div className="w-14 h-14 mx-auto mb-4 bg-secondary rounded-full flex items-center justify-center">
               <f.icon className="w-6 h-6 text-primary" />

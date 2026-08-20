@@ -24,13 +24,14 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.05, duration: 0.4 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ delay: index * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -6 }}
       className="group"
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white shadow-sm border border-secondary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500">
+      <div className="relative overflow-hidden rounded-2xl bg-white shadow-sm border border-secondary/30 hover:shadow-xl hover:shadow-primary/10 transition-shadow duration-500 card-lift">
         <div className="relative aspect-square overflow-hidden">
           <Link href={`/product/${product.slug}`}>
             <Image

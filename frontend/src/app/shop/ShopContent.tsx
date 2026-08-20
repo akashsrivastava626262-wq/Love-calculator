@@ -2,9 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { SlidersHorizontal } from 'lucide-react';
 import { ProductCard } from '@/components/product/ProductCard';
 import { Button } from '@/components/ui/button';
+import { Reveal } from '@/components/motion/Reveal';
 import { DEMO_PRODUCTS } from '@/lib/types';
 
 export default function ShopContent() {
@@ -37,9 +39,16 @@ export default function ShopContent() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+      <Reveal className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
         <div>
-          <h1 className="font-display text-3xl md:text-4xl font-bold">{title}</h1>
+          <motion.h1
+            className="font-display text-3xl md:text-4xl font-bold text-gray-800"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {title}
+          </motion.h1>
           <p className="text-gray-500 mt-1">{products.length} products</p>
         </div>
         <div className="flex items-center gap-3">
@@ -47,7 +56,7 @@ export default function ShopContent() {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            className="border border-secondary rounded-xl px-4 py-2 text-sm bg-white"
+            className="border border-rose-100 rounded-xl px-4 py-2 text-sm bg-white transition-shadow focus:shadow-md focus:ring-2 focus:ring-rose-200 outline-none"
           >
             <option value="featured">Featured</option>
             <option value="price-low">Price: Low to High</option>
@@ -55,7 +64,7 @@ export default function ShopContent() {
             <option value="rating">Top Rated</option>
           </select>
         </div>
-      </div>
+      </Reveal>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
         {products.map((product, i) => (

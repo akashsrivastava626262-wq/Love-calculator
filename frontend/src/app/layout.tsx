@@ -3,6 +3,7 @@ import { Poppins, Cormorant_Garamond, Dancing_Script } from 'next/font/google';
 import { Header, Footer } from '@/components/layout/HeaderFooter';
 import { AIChatWidget } from '@/components/chat/AIChatWidget';
 import { AuthHydration } from '@/components/providers/AuthHydration';
+import { PageTransition } from '@/components/motion/PageTransition';
 import './globals.css';
 
 const poppins = Poppins({
@@ -47,7 +48,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col">
         <AuthHydration>
           <Header />
-          <main className="flex-1">{children}</main>
+          <PageTransition>
+            <main className="flex-1">{children}</main>
+          </PageTransition>
           <Footer />
           <AIChatWidget />
         </AuthHydration>
