@@ -1,0 +1,13 @@
+{
+  "name": "AAKSHI Preview",
+  "install": "npm ci",
+  "terminals": [
+    {
+      "name": "AAKSHI Website",
+      "command": "npm run dev:web"
+    }
+  ],
+  "ports": [
+    { "port": 3000, "name": "AAKSHI Storefront" }
+  ]
+}
