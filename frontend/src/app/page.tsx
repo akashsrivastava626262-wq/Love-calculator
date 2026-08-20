@@ -40,8 +40,8 @@ export default function HomePage() {
 
       <section className="py-20 container mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-rose-gold font-medium tracking-widest text-sm uppercase mb-2">Curated For You</p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-rose-gold">Shop Collections</h2>
+          <p className="text-mauve font-medium tracking-widest text-sm uppercase mb-2">Curated For You</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-mauve">Shop Collections</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {COLLECTIONS.map((col) => (
